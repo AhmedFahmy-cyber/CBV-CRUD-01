@@ -22,6 +22,9 @@ class Core(models.Model):
 
     def get_absolute_url(self):
         return reverse("core:singleview", args=[self.slug] )
+        
+    def posts_absolute_url(self):
+        return reverse("core:posts" )
     
     class Meta:
 
