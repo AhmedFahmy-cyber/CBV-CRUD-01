@@ -1,5 +1,6 @@
-from django import form 
-from .mpdels import Core
+from django import forms 
+from .models import Core
+from django.contrib.auth.models import User
 
 
 
@@ -8,5 +9,6 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         
-        model = Core
+        model  = User
         fields = '__all__'
+

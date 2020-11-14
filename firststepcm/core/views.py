@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.views.generic import ListView , DetailView , UpdateView ,CreateView
 from .models import *
 from django.urls import reverse_lazy
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -27,3 +27,14 @@ class AddView(CreateView):
     template_name = 'core/add.html'
     fields = '__all__'
     success_url = reverse_lazy('core:posts')
+
+class EditView(UpdateView):
+    model = Core
+    template_name = 'core/edit.html'
+    fields = '__all__'
+    pk_url_kwarg = 'pk'
+    success_url = reverse_lazy('core:posts')
+
+
+
+    

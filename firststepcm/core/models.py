@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User 
+from ckeditor.fields import RichTextField
 
 
 
@@ -11,7 +12,8 @@ from django.contrib.auth.models import User
 class Core(models.Model):
 
     title = models.CharField(max_length=200)
-    excpert = models.TextField(null=True) 
+    excpert =RichTextField(null=True , blank=True)
+    # excpert = models.TextField(null=True) 
     author = models.ForeignKey(User , on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200 , unique=True)
     image = models.ImageField(upload_to ='uploads/')
@@ -25,6 +27,12 @@ class Core(models.Model):
         
     def posts_absolute_url(self):
         return reverse("core:posts" )
+
+    def form_absolute_url(self):
+        return reverse("core:posts" )   
+
+    def edit_absolute_url(self):
+        return reverse("core:EditView" , args=[self.pk])     
     
     class Meta:
 
