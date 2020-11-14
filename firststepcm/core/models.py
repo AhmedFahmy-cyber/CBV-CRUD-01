@@ -32,7 +32,14 @@ class Core(models.Model):
         return reverse("core:posts" )   
 
     def edit_absolute_url(self):
-        return reverse("core:EditView" , args=[self.pk])     
+        return reverse("core:EditView" , args=[self.pk])  
+
+    def edit_absolute_url(self):
+        return reverse("core:EditView" , args=[self.pk]) 
+
+
+    def delete_absolute_url(self):
+        return reverse("core:delete" , args=[self.pk])       
     
     class Meta:
 

@@ -1,9 +1,8 @@
 from django.shortcuts import render , redirect
-from django.views.generic import ListView , DetailView , UpdateView ,CreateView
+from django.views.generic import ListView , DetailView , UpdateView ,CreateView , DeleteView
 from .models import *
 from django.urls import reverse_lazy
 from django.contrib import messages
-
 
 # Create your views here.
 
@@ -16,7 +15,7 @@ class SinglelView(DetailView):
     model = Core
     template_name = "core/single.html"
     context_object_name = 'post'
-    
+
 class PostsView(ListView):
     model = Core
     template_name = 'core/posts.html'
@@ -36,5 +35,12 @@ class EditView(UpdateView):
     success_url = reverse_lazy('core:posts')
 
 
+class Delete(DeleteView):
+    model = Core
+    template_name = 'core/confirm-delete.html'
+    fields = '__all__'
+    pk_url_kwarg = 'pk'
+    success_url = reverse_lazy('core:posts')
 
-    
+   
+

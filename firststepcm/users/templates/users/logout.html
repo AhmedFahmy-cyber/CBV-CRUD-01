@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block content%}
+<div class="container">
+    <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="content p-4">
+                <h2>You have been logged out</h2>
+            </div>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    <a class="m-4" href="{% url 'users:login'  %}">Log In Again</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
